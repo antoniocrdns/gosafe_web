@@ -5,7 +5,6 @@ import Dashboard from "./pages/Dashboard";
 import Sidebar from "./components/Sidebar";
 import AdminConductor from "./pages/AdminConductor";
 import AdminPasajero from "./pages/AdminPasajero";
-import CodigoQR from "./pages/CodigoQR";
 import Vehiculos from "./pages/Vehiculos";
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
         <Route index element={<Dashboard />} />
         <Route path="conductores" element={<AdminConductor />} />
         <Route path="pasajeros" element={<AdminPasajero />} />
-        <Route path="codigoqr" element={<CodigoQR />} />
         <Route path="vehiculos" element={<Vehiculos />} />
       </Route>
 
@@ -42,7 +40,6 @@ function LayoutWithSidebar() {
           <Route index element={<Dashboard />} />
           <Route path="conductores" element={<AdminConductor />} />
           <Route path="pasajeros" element={<AdminPasajero />} />
-          <Route path="codigoqr" element={<CodigoQR />} />
           <Route path="vehiculos" element={<Vehiculos />} />
         </Routes>
       </div>
