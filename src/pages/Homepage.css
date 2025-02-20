@@ -1,0 +1,116 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  .background {
+    width: 100vw;
+    height: 100vh;
+    background: url('../assets/home.png') no-repeat center center;
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+  }
+
+  .content {
+    text-align: right;
+    color: rgb(245, 239, 239);
+    font-family: "Poppins", sans-serif;
+    
+    font-weight: bold; 
+    margin-bottom: 15px; 
+    position: absolute;
+    top: 70%; 
+    right: 20px;
+    
+  }
+  
+  .text {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-size: 35px;
+    color: white;
+    
+    
+  }
+  
+  .button1 {
+    font-family: "Poppins", sans-serif;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4ba961;
+    color: white;
+    cursor: pointer;
+    font-size: 30px; 
+    border-radius: 25px;
+
+
+ 
+  }
+  
+  .button1:hover {
+    background-color: #1d7e39;
+  }
+
+  .button2 {
+    font-family: "Poppins", sans-serif;
+    padding: 10px 20px;
+    font-size: 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: #67a0ff; 
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.button2:hover {
+    background-color: #407de7;
+}
+
+  .logo {
+    position: absolute;
+    top: 20px; 
+    left: 20px; 
+    width: 120px; 
+    height: auto;  
+}
+.logo {
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  width: 290px;  
+  height: auto;  
+}
+
+#parte1, #parte2 {
+  width: 99vw;
+  height: 100vh;
+  background: url('../assets/home.png') no-repeat center center;
+  background-size: cover; 
+ 
+  
+ 
+
+ 
+}
+
+
+
+
+
+
+
+  
