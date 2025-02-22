@@ -1,69 +1,66 @@
 import {FaTrashAlt, FaPen, FaSearch } from "react-icons/fa"
+import "../Styles/AdminPasajero.css";
 
-function AdminPasajero() {
+function AdminPasajero(){
     const usuarios = [
-        { correo: 'ejemplo1@gmail.com', nombre: 'Juan Jose', apellidos:'Lopez Perez', telefono: 6541423435, rol:'Pasajero' },
-        {correo: 'ejemplo2@gmail.com', nombre: 'Juan Jose', apellidos:'Lopez Perez', telefono: 6541423435, rol:'Passajero'},
-        {correo: 'ejemplo3@gmail.com', nombre: 'Juan Jose', apellidos:'Lopez Perez', telefono: 6541423435, rol:'Pasajero'}
-        
+        { correo: 'ejemplo1@gmail.com', nombre: 'Juan Jose', apellidos: 'Lopez Perez', telefono: 6541423435, rol: 'Pasajero' },
+        { correo: 'ejemplo2@gmail.com', nombre: 'Juan Jose', apellidos: 'Lopez Perez', telefono: 6541423435, rol: 'Pasajero' },
+        { correo: 'ejemplo3@gmail.com', nombre: 'Juan Jose', apellidos: 'Lopez Perez', telefono: 6541423435, rol: 'Pasajero' },
     ];
+
+    const handleEdit = (correo) => {
+        console.log("Editar Usuario:", correo); //Esto es para editar el usuario
+    };
+    const handleDelete = (correo) => {
+        console.log("Eliminar Usuario", correo); // esto es poara elimiar usuario
+    };
     
     return (
-        <div style={styles.container}>
-            <h1>Administrar pasajeros</h1>
-            <FaSearch /><input type="text" placeholder="Buscar nombre" style={styles.inp}></input>
-        
-        <div style={styles.listcontainer}>
-        <table style={styles.tabla}>
-            <thead>
-                <tr>
-                    <th>Correo</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Telefono</th>
-                    <th>Rol</th>
-                </tr>
-            </thead>
-            <tbody>
-                {usuarios.map((usuario) => (
-                    <tr key={usuario.correo}>
-                        <td style={styles.td}>{usuario.correo}</td>
-                        <td style={styles.td}>{usuario.nombre}</td>
-                        <td style={styles.td}>{usuario.apellidos}</td>
-                        <td style={styles.td}>{usuario.telefono}</td>
-                        <td style={styles.td}>{usuario.rol}</td>
-                        <FaTrashAlt style={styles.td}/>
-                        <FaPen  style={styles.td}/>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        <div className="container">
+            <h1>Administrar Pasajeros</h1>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <FaSearch />
+                <input type="text" placeholder="Buscar nombre" className="inp" />
+            </div>
+
+            <div className="listcontainer">
+                <table className="tabla">
+                    <thead>
+                        <tr>
+                            <th>Correo</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Telefono</th>
+                            <th>Rol</th>
+                            <th>Acciones</th> {/* Nueva columna para acciones */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {usuarios.map((usuario) => (
+                            <tr key={usuario.correo}>
+                                <td>{usuario.correo}</td>
+                                <td>{usuario.nombre}</td>
+                                <td>{usuario.apellidos}</td>
+                                <td>{usuario.telefono}</td>
+                                <td>{usuario.rol}</td>
+                                <td>
+                                    <FaPen
+                                        className="icon"
+                                        onClick={() => handleEdit(usuario.correo)}
+                                    />
+                                    <FaTrashAlt
+                                        className="icon"
+                                        onClick={() => handleDelete(usuario.correo)}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
-        </div>
-        
     );
 }
-const styles={
-    container:{
-        backgroundColor:"#e1e9f0",
-    },
-    inp:{
-        borderRadius:"5px",
-        height:"30px",
-        width:"300px",
-        margin:"20px"
-        
-    },
-    listcontainer:{
-        padding:"20px",
-        borderRadius:"5px",
-        border:"5px solid #bbc1c7"
-    },
-    tabla:{
-        marginLeft:"80px"
-    },
-    td:{
-        padding: '30px',
-    }
-}
+
 export default AdminPasajero;
+
