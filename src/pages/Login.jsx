@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import "../Styles/Login.css";
 import logo from "../assets/gosafe_logo.png"; // Asegúrate de que la imagen esté en la carpeta correcta
 
 function Login() {
