@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import gosafeLogo from "../assets/gosafe_logo2.png";
@@ -51,7 +51,9 @@ function Sidebar() {
                                 { path: "/dashboard", label: "Dashboard" },
                                 { path: "/dashboard/conductores", label: "Administrar Conductor" },
                                 { path: "/dashboard/pasajeros", label: "Administrar Pasajero" },
+                                { path: "/dashboard/historial", label: "Historial Conductor"},
                                 { path: "/dashboard/vehiculos", label: "Vehículos" },
+                                
                             ].map((item) => (
                                 <li key={item.path} className="nav-item">
                                     <Link

@@ -16,9 +16,9 @@ function Homepage() {
           <h2 className="text">Viaja a cualquier</h2>
           <h2 className="text">lugar con la App</h2>
           <a href="#parte2" className="button button1">
-            Descargar
+            Descargar Para Android
           </a>
-          <h3 className="android-text">Para Android</h3>
+
         </div>
       </section>
 
@@ -28,10 +28,10 @@ function Homepage() {
           <img src={logo} alt="Logo" className="logo" />
         </div>
         <div className="content">
-          <h2 className="text">Conéctate con tus</h2>
-          <h2 className="text">amigos en tiempo real</h2>
+          <h2 className="text">Administra</h2>
+          <h2 className="text"> en tiempo real</h2>
           <Link to="/login" className="button button2">
-            Iniciar sesión
+            Iniciar Sesión
           </Link>
         </div>
       </section>

@@ -49,7 +49,7 @@ body, html {
 /* Contenido alineado a la derecha (Parte 1) */
 .right-content {
   text-align: right;
-  margin-right: 20px;
+  margin-right: 50px;
   margin-bottom: 150px; /* Ajusta la distancia desde el footer */
 }
 
