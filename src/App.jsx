@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 import AdminConductor from "./pages/AdminConductor";
 import AdminPasajero from "./pages/AdminPasajero";
 import Vehiculos from "./pages/Vehiculos";
+import HistorialViajes from "./pages/HistorialConductor";
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       {/* Dashboard con barra lateral */}
-      <Route path="/dashboard" element={<LayoutWithSidebar />}>
+      <Route path="/dashboard/*" element={<LayoutWithSidebar />}>
         <Route index element={<Dashboard />} />
         <Route path="conductores" element={<AdminConductor />} />
         <Route path="pasajeros" element={<AdminPasajero />} />
         <Route path="vehiculos" element={<Vehiculos />} />
+        <Route path="historial" element={<HistorialViajes />} />
       </Route>
 
       {/* Redirección si la ruta no existe */}
@@ -41,6 +43,7 @@ function LayoutWithSidebar() {
           <Route path="conductores" element={<AdminConductor />} />
           <Route path="pasajeros" element={<AdminPasajero />} />
           <Route path="vehiculos" element={<Vehiculos />} />
+          <Route path="Historial" element={<HistorialViajes />} />
         </Routes>
       </div>
     </div>

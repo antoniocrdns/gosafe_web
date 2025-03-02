@@ -1,7 +1,9 @@
-import {FaTrashAlt, FaPen, FaSearch } from "react-icons/fa"
+import {FaTrashAlt, FaPen, FaSearch, FaPlus } from "react-icons/fa"
+import React, {useState} from "react";
 import "../Styles/AdminConductor.css";
 
 function AdminConductor(){
+    const [isModalOpen, setIsModalOpen] =useState(false);
     const usuarios = [
         { correo: 'ejemplo1@gmail.com', nombre: 'Juan Jose', apellidos: 'Lopez Perez', telefono: 6541423435, rol: 'Conductor' },
         { correo: 'ejemplo2@gmail.com', nombre: 'Juan Jose', apellidos: 'Lopez Perez', telefono: 6541423435, rol: 'Conductor' },
@@ -14,7 +16,22 @@ function AdminConductor(){
     const handleDelete = (correo) => {
         console.log("Eliminar Usuario", correo); // esto es poara elimiar usuario
     };
-    
+    const handleCreateProfile = () =>{
+        setIsModalOpen(true);   //aqui abre el modal
+
+    };
+    const closeModal = () => {
+        setIsModalOpen(false); //aqui cierra el modal
+    };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        const nuevoPerfil = Object.fromEntries(formData.entries());
+
+        console.log("Nuevo Perfil", nuevoPerfil);
+        closeModal();
+    };
     return (
         <div className="container">
             <h1>Administrar Conductor</h1>
@@ -25,16 +42,9 @@ function AdminConductor(){
 
             <div className="listcontainer">
                 <table className="tabla">
-                    <thead>
-                        <tr>
-                            <th>Correo</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Telefono</th>
-                            <th>Rol</th>
-                            <th>Acciones</th> {/* Nueva columna para acciones */}
-                        </tr>
-                    </thead>
+                <thead>
+                    <tr><th>Correo</th><th>Nombre</th><th>Apellidos</th><th>Telefono</th><th>Rol</th><th>Acciones</th></tr>
+                </thead>
                     <tbody>
                         {usuarios.map((usuario) => (
                             <tr key={usuario.correo}>
@@ -58,6 +68,46 @@ function AdminConductor(){
                     </tbody>
                 </table>
             </div>
+            <button className="create-profile-button" onClick={handleCreateProfile}>
+                <FaPlus /> Crear Perfil
+            </button>
+            {isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal">
+                        <h2>Agregar Nuevo Perfil</h2>
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                                Nombre:
+                                <input type="text" name="nombre" required />
+                            </label>
+                            <label>
+                                Apellidos:
+                                <input type="text" name="apellido" required />
+                            </label>
+                            <label>
+                                Correo:
+                                <input type="email" name="correo" required />
+
+                            </label>
+                            <label>
+                                Telefono:
+                                <input type="tel" name="telefono" required />
+                            </label>
+                            <label>
+                                Contraseña:
+                                <input type="password" name="contraseña" required />
+                            </label>
+                            
+                            <div className="modal-buttons">
+                                <button type="button" onClick={closeModal}>
+                                    Cancelar
+                                </button>
+                                <button type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
